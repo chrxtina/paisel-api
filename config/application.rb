@@ -15,7 +15,7 @@ require 'action_controller/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module RailsApiTemplate
+module PaiselApi
   # :nodoc:
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified
@@ -41,7 +41,7 @@ module RailsApiTemplate
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'http://localhost:8080'
+        origins ENV['CLIENT_ORIGIN'] || 'https://chrxtina.github.io'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
