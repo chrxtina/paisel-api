@@ -1,4 +1,4 @@
-class ThoughtsController < ApplicationController
+class ThoughtsController < ProtectedController
   before_action :set_thought, only: [:show, :update, :destroy]
 
   # GET /thoughts
@@ -18,7 +18,7 @@ class ThoughtsController < ApplicationController
   # POST /thoughts
   # POST /thoughts.json
   def create
-    @thought = Thought.new(thought_params)
+    @thought = current_user.thoughts.build(thought_params)
 
     if @thought.save
       render json: @thought, status: :created, location: @thought
@@ -50,7 +50,7 @@ class ThoughtsController < ApplicationController
   private
 
   def set_thought
-    @thought = Thought.find(params[:id])
+    @thought = current_user.thoughts.find(params[:id])
   end
 
   def thought_params
