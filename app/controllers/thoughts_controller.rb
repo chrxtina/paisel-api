@@ -1,5 +1,5 @@
 class ThoughtsController < ProtectedController
-  before_action :set_thought, only: [:show, :update, :destroy]
+  before_action :set_thought, only: [:update, :destroy]
 
   # GET /thoughts
   # GET /thoughts.json
@@ -12,6 +12,7 @@ class ThoughtsController < ProtectedController
   # GET /thoughts/1
   # GET /thoughts/1.json
   def show
+    @thought = Thought.find(params[:id])
     render json: @thought
   end
 
@@ -30,8 +31,6 @@ class ThoughtsController < ProtectedController
   # PATCH/PUT /thoughts/1
   # PATCH/PUT /thoughts/1.json
   def update
-    @thought = Thought.find(params[:id])
-
     if @thought.update(thought_params)
       head :no_content
     else
