@@ -4,7 +4,7 @@ class ThoughtsController < ProtectedController
   # GET /thoughts
   # GET /thoughts.json
   def index
-    @thoughts = Thought.all
+    @thoughts = Thought.all.reverse
 
     render json: @thoughts
   end
