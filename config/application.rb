@@ -37,11 +37,11 @@ module PaiselApi
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
+    # http://localhost:8080
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'http://localhost:8080'
+        origins ENV['CLIENT_ORIGIN'] || 'https://chrxtina.github.io'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
