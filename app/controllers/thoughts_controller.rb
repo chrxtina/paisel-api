@@ -9,6 +9,11 @@ class ThoughtsController < ProtectedController
     render json: @thoughts
   end
 
+  def mythoughts
+    @thoughts = Thought.where("user_id=#{current_user.id}")
+    render json: @thoughts
+  end
+
   # GET /thoughts/1
   # GET /thoughts/1.json
   def show
