@@ -10,7 +10,7 @@ class ThoughtsController < ProtectedController
   end
 
   def mythoughts
-    @thoughts = Thought.where("user_id=#{current_user.id}")
+    @thoughts = Thought.where("user_id=#{current_user.id}").reverse
     render json: @thoughts
   end
 
