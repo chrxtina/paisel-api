@@ -5,6 +5,8 @@ curl --include --request POST http://localhost:3000/thoughts \
   --header "Content-Type: application/json" \
   --data '{
     "thought": {
-      "content": "Running is cool"
+      "content": "It is a beautiful day!",
+      "question": "Should I go running?",
+      "answers": ["Yes","No","Maybe"],
     }
   }'

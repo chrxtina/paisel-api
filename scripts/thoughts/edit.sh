@@ -7,6 +7,6 @@ curl --include --request PATCH http://localhost:3000/thoughts/$ID \
     "thought": {
       "content": "It is a beautiful day!",
       "question": "Should I go running?",
-      "answers": "["Yes","No","Maybe"]",
+      "answers": ["Yes","No","Maybe"],
     }
   }'
