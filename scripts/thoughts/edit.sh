@@ -5,6 +5,8 @@ curl --include --request PATCH http://localhost:3000/thoughts/$ID \
   --header "Content-Type: application/json" \
   --data '{
     "thought": {
-      "content": "Soccer is cool"
+      "content": "It is a beautiful day!",
+      "question": "Should I go running?",
+      "answers": "["Yes","No","Maybe"]",
     }
   }'

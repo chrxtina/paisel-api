@@ -58,6 +58,6 @@ class ThoughtsController < ProtectedController
   end
 
   def thought_params
-    params.require(:thought).permit(:content, :user_id)
+    params.require(:thought).permit(:content, :user_id, :question, answers: [])
   end
 end
