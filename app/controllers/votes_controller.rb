@@ -46,6 +46,21 @@ class VotesController < ProtectedController
     head :no_content
   end
 
+  # def vote_results
+  #   @results = Vote.where("thought_id=#{params[:id]}").group_by(&:choice)
+  #
+  #   render json: @results
+  # end
+
+  def vote_results
+    @votes = Vote.where("thought_id=#{params[:id]}")
+    @total = @votes.count
+    @answers = @votes.group(:choice).count
+    @percent = @answers.each { |k, v| @answers[k] = (v.to_f / @total).round(2) }
+
+    render json: @percent
+  end
+
   private
 
   def set_vote
