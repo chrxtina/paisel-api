@@ -52,13 +52,29 @@ class VotesController < ProtectedController
   #   render json: @results
   # end
 
+  # def vote_results
+  #   @votes = Vote.where("thought_id=#{params[:id]}")
+  #   @total = @votes.count
+  #   @answers = @votes.group(:choice).count
+  #   @percent = @answers.each { |k, v| @answers[k] = (v.to_f / @total).round(2)}
+  #
+  #   render json: @percent
+  # end
+
   def vote_results
     @votes = Vote.where("thought_id=#{params[:id]}")
     @total = @votes.count
     @answers = @votes.group(:choice).count
     @percent = @answers.each { |k, v| @answers[k] = (v.to_f / @total).round(2) }
 
-    render json: @percent
+    @question = @votes.first.thought.question
+    @answers = @votes.first.thought.answers
+
+    render json: {
+      percent: @percent,
+      question: @question,
+      answers: @answers
+    }
   end
 
   private
