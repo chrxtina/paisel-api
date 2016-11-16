@@ -21,5 +21,8 @@ Paisel is an anonymous thought sharing app that gives users an outlet for their 
 | PATCH  | `/thoughts/:id`        | `thoughts#update`     |
 | DELETE | `/thoughts/:id`        | `thoughts#destroy`    |
 | GET    | `/mythoughts`          | `thoughts#mythoughts` |
+| POST   | `/votes`               | `votes#create`        |
+| POST   | `/vote-results/:id`    | `votes#vote_results`  |
+
 
 All data returned from API actions is formatted as JSON.
